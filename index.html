@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Strona w budowie</title>
+
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #EE7755;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            font-weight: 400;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .wrapper {
+            width: 100%;
+            height: auto;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+
+        .bg_icon {
+            width: auto;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .arrow {
+            position: absolute;
+            top: -40%;
+            left: -27%;
+            width: 60%;
+            z-index: -1;
+        }
+
+        .cross {
+            position: absolute;
+            top: -78%;
+            right: -30%;
+            width: 75%;
+            z-index: -1;
+        }
+
+        .bg_icon img {
+            width: 100%;
+        }
+
+        .container {
+            width: auto;
+            padding: 0 5vw;
+            margin-top: 23vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 1;
+        }
+
+        .container .maintenance_notif_mobile {
+            display: none;
+        }
+
+        .maintenance_notif_desktop {
+            position: absolute;
+            top: 18vh;
+            right: 5vw;
+            font-size: 16px;
+        }
+
+        .mikulik_logo {
+            position: relative;
+            width: auto;
+            height: auto;
+        }
+
+        .mikulik_logo::before {
+            content: url('/files/ludzik.svg');
+            display: block;
+            position: absolute;
+            top: 0;
+            right: -90%;
+            color: #fff;
+            width: 200px;
+        }
+
+        .mikulik_headline {
+            font-weight: 400;
+            margin-top: 15px;
+        }
+
+        .details_container {
+            width: auto;
+            padding: 100px 5vw 0 5vw;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+                'd1 d2 d3'
+            ;
+        }
+
+        .detail .detail_arrow {
+            display: block;
+            background: #FFB051;
+            width: 2px;
+            position: absolute;
+            /* display: none; */
+        }
+
+        .arrow1 {
+            right: 0;
+            top: -70%;
+            transform: rotate(58deg);
+            height: 120px;
+        }
+
+        .arrow2 {
+            left: 40%;
+            top: -50%;
+            transform: rotate(-20deg);
+            height: 60px;
+        }
+
+        .arrow3 {
+            left: 0;
+            top: -70%;
+            transform: rotate(-60deg);
+            height: 120px;
+        }
+
+        .detail {
+            width: 80%;
+            height: auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .d1 {
+            grid-area: d1;
+            padding-left: 0;
+        }
+
+        .d2 {
+            grid-area: d2;
+            justify-self: center;
+        }
+
+        .d3 {
+            grid-area: d3;
+            padding-right: 0;
+            justify-self: right;
+        }
+
+        .check_icon {
+            display: none;
+        }
+
+        .details_container .detail .detail_headline {
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .details_container .detail .detail_description {
+            font-weight: 400;
+            margin-top: 40px;
+        }
+
+        /* ------------------------------ MEDIA MOBILE ------------------------------ */
+        @media only screen and (max-width: 767px) {
+            .detail .detail_arrow {
+                display: none;
+            }
+
+            .maintenance_notif_desktop {
+                display: none;
+            }
+
+            .bg_icon {
+                width: auto;
+                height: auto;
+                overflow: hidden;
+            }
+
+            .arrow {
+                position: absolute;
+                top: -150px;
+                left: -190px;
+                width: 100%;
+                z-index: -1;
+                /* display: none; */
+            }
+
+            .cross {
+                position: absolute;
+                top: -245px;
+                right: -150px;
+                width: 118%;
+                z-index: -2;
+                transform: rotate(-6deg);
+                /* display: none; */
+            }
+
+            .mikulik_logo {
+                position: relative;
+                display: flex;
+                justify-content: center;
+            }
+
+            .mikulik_logo img {
+                width: 70%;
+            }
+
+            .mikulik_logo::before {
+                right: -140px;
+                top: -8%;
+                transform: scale(0.6);
+            }
+
+            .container {
+                padding: 0 5vw;
+                width: 90vw;
+                margin-top: 40vh;
+            }
+
+            .container .maintenance_notif_mobile {
+                display: block;
+                padding: 40px 0 0px 0;
+                text-align: center;
+            }
+
+            .mikulik_headline {
+                font-weight: 400;
+                margin-top: 15px;
+                text-align: center;
+            }
+
+            .details_container {
+                width: auto;
+                padding: 40px 5vw 0 5vw;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-template-areas:
+                    'd1'
+                    'd2'
+                    'd3'
+                ;
+            }
+
+            .detail {
+                width: 100%;
+                height: auto;
+                padding: 40px 0;
+                position: relative;
+            }
+
+            .d1 {
+                grid-area: d1;
+                justify-self: center;
+                text-align: center;
+            }
+
+            .d2 {
+                grid-area: d2;
+                justify-self: center;
+                text-align: center;
+            }
+
+            .d3 {
+                grid-area: d3;
+                justify-self: center;
+                text-align: center;
+                padding-bottom: 80px;
+            }
+
+            .check_icon {
+                display: block;
+                margin: 0 auto;
+                margin-bottom: 25px;
+            }
+
+            .details_container .detail .detail_headline {
+                font-size: 26px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+
+            .details_container .detail .detail_description {
+                font-weight: 400;
+                margin-top: 25px;
+            }
+        }
+
+        /* ------------------------------ MEDIA IPHONE x ------------------------------ */
+        @media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) {
+            .arrow {
+                top: -150px;
+                left: -170px;
+            }
+
+            .cross {
+                top: -230px;
+                right: -155px;
+                width: 125%;
+            }
+        }
+
+        /* ------------------------------ MEDIA IPHONE 5 ------------------------------ */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+            body {
+                font-size: 16px;
+            }
+            .arrow {
+                top: -130px;
+                left: -150px;
+                width: 100%;
+            }
+
+            .cross {
+                top: -210px;
+                right: -155px;
+                width: 125%;
+            }
+        }
+
+        /* ------------------------------ MEDIA IPHONE 6, 6S, 7, 8 ------------------------------ */
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) { 
+            .arrow {
+                top: -130px;
+                left: -150px;
+                width: 100%;
+            }
+
+            .cross {
+                top: -210px;
+                right: -155px;
+                width: 115%;
+            }
+        }
+
+        /* ------------------------------ MEDIA TABLET ------------------------------ */
+        @media only screen and (min-width: 768px) and (max-width: 992px) {
+            .detail .detail_arrow {
+                display: none;
+            }
+
+            .maintenance_notif_desktop {
+                display: none;
+            }
+
+            .bg_icon {
+                width: auto;
+                height: auto;
+                overflow: hidden;
+            }
+
+            .arrow {
+                position: absolute;
+                top: -180px;
+                left: -280px;
+                width: 80%;
+                z-index: -1;
+            }
+
+            .cross {
+                position: absolute;
+                top: -265px;
+                right: -150px;
+                width: 80%;
+                z-index: -2;
+                transform: rotate(-6deg);
+            }
+        }
+
+        /* ------------------------------ MEDIA SMALL DESKTOP ------------------------------ */
+        @media only screen and (min-width: 993px) and (max-width: 1200px) {
+            body {
+                font-size: 20px;
+            }
+            .detail .detail_arrow {
+                display: none;
+            }
+
+            .maintenance_notif_desktop {
+                display: none;
+            }
+
+            .bg_icon {
+                width: auto;
+                height: auto;
+                overflow: hidden;
+            }
+
+            .arrow {
+                position: absolute;
+                top: -220px;
+                left: -370px;
+                width: 80%;
+                z-index: -1;
+            }
+
+            .cross {
+                position: absolute;
+                top: -295px;
+                right: -180px;
+                width: 80%;
+                z-index: -2;
+                transform: rotate(-6deg);
+            }
+
+            .container {
+                padding: 0 5vw;
+                width: 90vw;
+                margin-top: 40vh;
+            }
+
+            .mikulik_headline {
+                text-align: center;
+                margin-top: 40px;
+            }
+
+            .detail {
+                width: 90%;
+            }
+
+            .d1 {
+                justify-self: left;
+            }
+
+            .d2 {
+                justify-self: center;
+            }
+
+            .d3 {
+                justify-self: right;
+            }
+
+            .details_container {
+                padding: 150px 5vw 0 5vw;
+            }
+
+            .detail .detail_arrow {
+                display: block;
+            }
+
+            .arrow1 {
+                left: 70%;
+                top: -70%;
+                transform: rotate(58deg);
+                height: 160px;
+            }
+
+            .arrow2 {
+                left: 40%;
+                top: -55%;
+                transform: rotate(-20deg);
+                height: 90px;
+            }
+
+            .arrow3 {
+                left: 20%;
+                top: -68%;
+                transform: rotate(-50deg);
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body style="overflow-x: hidden !important;">
+    
+    <div class="wrapper">
+
+        <div class="bg_icon arrow">
+            <img src="/files/arrow.svg" alt="arrow mikulik icon">
+        </div>
+
+        <div class="bg_icon cross">
+            <img src="/files/cross.svg" alt="cross mikulik icon">
+        </div>
+        
+        <div class="maintenance_notif_desktop">Strona w budowie, zaczynamy już za chwilę :)</div>
+        
+        <div class="container">
+            <div class="mikulik_logo">
+                <img src="/files/M.svg" alt="Małgosia Mikulik">
+            </div>
+            <div class="maintenance_notif_mobile">Strona w budowie, zaczynamy już za chwilę :)</div>
+            <div class="mikulik_headline">3 główne obszary współpracy i&nbsp;narzędzi:</div>
+        
+            <div class="details_container">
+        
+                <div class="detail d1">
+                    <span class="detail_arrow arrow1"></span>
+                    <img class="check_icon" src="/files/checked.svg" alt="check-icon">
+                    <div class="detail_headline">Piękny umysł</div>
+                    <div class="detail_description">
+                        zmiana, chęci, motywacja, rozmowa, emocje, uczucia, mechanizmy psychologiczne, uzależnienia
+                    </div>
+                </div>
+        
+                <div class="detail d2">
+                    <span class="detail_arrow arrow2"></span>
+                    <img class="check_icon" src="/files/checked.svg" alt="check-icon">
+                    <div class="detail_headline">Zdrowe ciało</div>
+                    <div class="detail_description">
+                        motywacja, trening, inspiracja, dieta, suplementacja, regeneracja, medytacja, zdrowe nawyki, uroda i
+                        pielęgnacja
+                    </div>
+                </div>
+        
+                <div class="detail d3">
+                    <span class="detail_arrow arrow3"></span>
+                    <img class="check_icon" src="/files/checked.svg" alt="check-icon">
+                    <div class="detail_headline">Pasje i marzenia</div>
+                    <div class="detail_description">
+                        talent, marzenia, podróże, fotografia, miłość, przyjaźń, życie, taniec, poszukiwania, odkrycia
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>
